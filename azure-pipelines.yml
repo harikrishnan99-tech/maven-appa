@@ -10,10 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps: 
-- script: sh 'mvn clean compile'
-- bash: echo 'Compilation Completed'
-- script: sh 'mvn test'
-- bash: echo 'Testing completed'
+- script: |
+    echo Compiling...
+    mvn clean compile
+  displayName: Build With Maven
+- script: |
+    echo Testing...
+    mvn test
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
