@@ -10,9 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps: 
-- script: bat 'mvn clean compile'
+- script: sh 'mvn clean compile'
 - bash: echo 'Compilation Completed'
-- script: bat 'mvn test'
+- script: sh 'mvn test'
 - bash: echo 'Testing completed'
 - task: Maven@3
   inputs:
